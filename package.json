@@ -1,61 +1,59 @@
 {
   "name": "gw2-embeds",
+  "description": "Embedding script for discretize-gw2-ui",
   "version": "0.1.0",
+  "main": "src/index.ts",
   "private": true,
-  "dependencies": {
-    "@discretize/gw2-ui-new": "^0.0.19",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.0"
-  },
+  "packageManager": "yarn@3.2.1",
   "scripts": {
     "start": "react-scripts start",
-    "prebuild": "yarn lint",
-    "build": "node ./scripts/build.mjs",
+    "build": "webpack --mode=production --node-env=production",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" && prettier -c src",
-    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix  && prettier -c src"
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "format": "prettier -w src",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -s public",
+    "build:dev": "webpack --mode=development",
+    "build:prod": "webpack --mode=production --node-env=production",
+    "watch": "webpack --watch"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "@discretize/gw2-ui-new": "^0.0.19",
+    "@discretize/typeface-menomonia": "^0.1.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "web-vitals": "^2.1.0"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "packageManager": "yarn@3.2.1",
   "devDependencies": {
     "@babel/core": "^7.18.5",
-    "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-commonjs": "^22.0.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-replace": "^4.0.0",
-    "@rollup/plugin-typescript": "^8.3.3",
+    "@mdx-js/react": "^1.6.22",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-docs": "^6.5.9",
+    "@storybook/addon-essentials": "^6.5.9",
+    "@storybook/addon-interactions": "^6.5.9",
+    "@storybook/addon-links": "^6.5.9",
+    "@storybook/builder-webpack5": "^6.5.9",
+    "@storybook/manager-webpack5": "^6.5.9",
+    "@storybook/node-logger": "^6.5.9",
+    "@storybook/preset-create-react-app": "^4.1.2",
+    "@storybook/react": "^6.5.9",
+    "@storybook/testing-library": "^0.0.13",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
     "@types/jest": "^28.1.1",
+    "@types/mini-css-extract-plugin": "^2.5.1",
     "@types/node": "^17.0.43",
-    "@types/react": "^18.0.12",
-    "@types/react-dom": "^18.0.5",
+    "@types/react": "^17.0.2",
+    "@types/react-dom": "^17.0.2",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "^5.28.0",
+    "@webpack-cli/generators": "^2.5.0",
     "@wordpress/eslint-plugin": "^12.4.0",
-    "@yarnpkg/sdks": "^3.0.0-rc.9",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-named-exports-order": "^0.0.2",
+    "css-loader": "^6.7.1",
     "dotenv": "^16.0.1",
     "eslint": "^8.17.0",
     "eslint-config-airbnb": "latest",
@@ -70,11 +68,50 @@
     "eslint-plugin-prettier": "latest",
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
+    "eslint-plugin-storybook": "^0.5.12",
+    "html-webpack-plugin": "^5.5.0",
+    "less": "^4.1.3",
+    "less-loader": "^11.0.0",
+    "mini-css-extract-plugin": "^2.6.1",
+    "postcss": "^8.4.14",
+    "postcss-js": "^4.0.0",
+    "postcss-loader": "^7.0.0",
+    "postcss-preset-env": "^7.7.2",
     "prettier": "^2.7.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.75.6",
-    "rollup-plugin-terser": "^7.0.2",
+    "style-loader": "^3.3.1",
+    "ts-loader": "^9.3.1",
     "tslib": "^2.4.0",
-    "typescript": "^4.7.4"
+    "typescript": "^4.7.4",
+    "typescript-plugin-css-modules": "^3.4.0",
+    "webpack": "^5.73.0",
+    "webpack-cli": "^4.10.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ],
+    "overrides": [
+      {
+        "files": [
+          "**/*.stories.*"
+        ],
+        "rules": {
+          "import/no-anonymous-default-export": "off"
+        }
+      }
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
