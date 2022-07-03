@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import type NodeListOf from 'typescript';
-import reportWebVitals from './reportWebVitals';
 import EmbedElement from './shared/embedElement';
 
 import '@discretize/typeface-menomonia/index.css';
