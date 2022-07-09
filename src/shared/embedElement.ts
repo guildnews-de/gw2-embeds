@@ -9,27 +9,28 @@ import { CSSProperties } from 'react';
 export default interface EmbedElement extends Omit<HTMLElement, 'dataset'> {
   dataset: {
     // Common
-    gw2Embed: string | undefined;
-    gw2Ids: string | undefined;
-    gw2Text: string | undefined;
-    gw2DisableTooltip: boolean | undefined;
-    gw2DisableText: boolean | undefined;
-    gw2DisableLink: boolean | undefined;
-    gw2Inline: boolean | undefined;
-    gw2ClassName: string | undefined;
-    gw2Style: CSSProperties | undefined;
+    gw2Embed?: string;
+    gw2Id?: string;
+    gw2Text?: string;
+    gw2DisableTooltip?: boolean;
+    gw2DisableText?: boolean;
+    gw2DisableLink?: boolean;
+    gw2DisableIcon?: boolean;
+    gw2Inline?: boolean;
+    gw2ClassName?: string;
+    gw2Style?: CSSProperties;
     // Boon, Condition, Effect
-    gw2Name: string | undefined;
-    gw2Count: number | undefined;
+    gw2Name?: string;
+    gw2Count?: number;
     // Gold
-    gw2Value: number | undefined;
+    gw2Value?: number;
     // Item
-    gw2Stat: string | undefined;
-    gw2Upgrades: Array<number> | undefined;
+    gw2Stat?: string;
+    gw2Upgrades?: string;
     // Traitline
-    gw2Inactive: boolean | undefined;
-    gw2DefaultSelected: Array<number> | undefined;
-    gw2Selectable: boolean | undefined;
-    gw2Resettable: boolean | undefined;
+    gw2Inactive?: boolean;
+    gw2DefaultSelected?: string;
+    gw2Selectable?: boolean;
+    gw2Resettable?: boolean;
   };
 }

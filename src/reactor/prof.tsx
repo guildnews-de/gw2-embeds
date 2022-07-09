@@ -1,4 +1,4 @@
-import { Boon } from '@discretize/gw2-ui-new';
+import { Profession } from '@discretize/gw2-ui-new';
 import React, { ComponentProps, ReactElement } from 'react';
 import EmbedElement from '../shared/embedElement';
 
@@ -8,7 +8,7 @@ export default function boonReactor(
 ): ReactElement {
   const {
     gw2Name,
-    gw2Count = undefined,
+    gw2Text = undefined,
     gw2DisableTooltip = false,
     gw2DisableText = false,
     gw2DisableLink = false,
@@ -16,12 +16,12 @@ export default function boonReactor(
     gw2Style = undefined,
   } = props.dataset;
 
-  type BoonProps = ComponentProps<typeof Boon>;
+  type ProfessionProps = ComponentProps<typeof Profession>;
 
   return (
-    <Boon
-      name={gw2Name as BoonProps['name']}
-      count={gw2Count}
+    <Profession
+      name={gw2Name as ProfessionProps['name']}
+      text={gw2Text}
       disableTooltip={gw2DisableTooltip}
       disableText={gw2DisableText}
       disableLink={gw2DisableLink}

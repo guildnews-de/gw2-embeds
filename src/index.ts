@@ -19,11 +19,10 @@
 const init = () => {
   // __webpack_public_path__ = findScriptBaseUrl();
   // document.__publicPath = __webpack_public_path__;
-
   import('./bootstrap').then((module) => module.default());
 };
 
-export default (function setGW2Embed () {
+export default (function setGW2Embed() {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {

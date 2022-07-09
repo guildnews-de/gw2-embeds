@@ -1,8 +1,8 @@
-import { Boon } from '@discretize/gw2-ui-new';
+import { Condition } from '@discretize/gw2-ui-new';
 import React, { ComponentProps, ReactElement } from 'react';
 import EmbedElement from '../shared/embedElement';
 
-export default function boonReactor(
+export default function condiReactor(
   props: EmbedElement,
   key: string,
 ): ReactElement {
@@ -16,18 +16,18 @@ export default function boonReactor(
     gw2Style = undefined,
   } = props.dataset;
 
-  type BoonProps = ComponentProps<typeof Boon>;
+  type ConditionProps = ComponentProps<typeof Condition>;
 
   return (
-    <Boon
-      name={gw2Name as BoonProps['name']}
+    <Condition
+      name={gw2Name as ConditionProps['name']}
       count={gw2Count}
       disableTooltip={gw2DisableTooltip}
       disableText={gw2DisableText}
       disableLink={gw2DisableLink}
       className={gw2ClassName}
       style={gw2Style}
-      key={key}
+      key={`${key}`}
     />
   );
 }
