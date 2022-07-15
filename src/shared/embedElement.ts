@@ -12,20 +12,21 @@ export default interface EmbedElement extends Omit<HTMLElement, 'dataset'> {
     gw2Embed?: string;
     gw2Id?: string;
     gw2Text?: string;
-    gw2DisableTooltip?: boolean;
-    gw2DisableText?: boolean;
-    gw2DisableLink?: boolean;
-    gw2DisableIcon?: boolean;
-    gw2Inline?: boolean;
+    gw2Notooltip?: string;
+    gw2Notext?: string;
+    gw2Nolink?: string
+    gw2Noicon?: string;
+    gw2Inline?: string;
     gw2ClassName?: string;
     gw2Style?: CSSProperties;
+    gw2Size?: string
     // Boon, Condition, Effect
     gw2Name?: string;
     gw2Count?: number;
     // Gold
     gw2Value?: number;
     // Item
-    gw2Stat?: string;
+    gw2Stats?: string;
     gw2Upgrades?: string;
     // Traitline
     gw2Inactive?: boolean;
