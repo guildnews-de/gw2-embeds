@@ -1,5 +1,5 @@
 import apIcon from './ap.png';
-import gemIcon from './gem.png';
+import gemsIcon from './gems.png';
 import karmaIcon from './karma.png';
 import laurelIcon from './laurel.png';
 import titleIcon from './title.png';
@@ -11,8 +11,8 @@ export default {
     text: 'Erfolgspunkte',
   },
   gems: {
-    src: gemIcon,
-    color: 'Blue',
+    src: gemsIcon,
+    color: 'RoyalBlue',
     text: 'Edelsteine',
   },
   karma: {

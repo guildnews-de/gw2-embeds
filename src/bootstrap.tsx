@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import type NodeListOf from 'typescript';
+import clsx from 'clsx';
 import EmbedElement from './shared/embedElement';
 
 import '@discretize/typeface-menomonia/index.css';
 import '@discretize/gw2-ui-new/dist/default_style.css';
 import '@discretize/gw2-ui-new/dist/index.css';
+import './style.css';
 
 function bootstrap() {
   const embeddables = Array.from(
@@ -15,6 +17,11 @@ function bootstrap() {
   );
   embeddables.forEach((element, index) => {
     const { gw2Embed: embedType = 'error' } = element.dataset;
+    if (element.dataset.gw2Size) {
+      const { gw2ClassName: cls = undefined } = element.dataset;
+      // eslint-disable-next-line no-param-reassign
+      element.dataset.gw2ClassName = clsx(cls, 'largeIcon');
+    }
     element.removeAttribute('data-gw2-embed');
     return (
       import(`./reactor/${embedType}`)
