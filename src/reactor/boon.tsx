@@ -9,10 +9,11 @@ export default function boonReactor(
   const {
     gw2Name,
     gw2Count = undefined,
-    gw2DisableTooltip = false,
-    gw2DisableText = false,
-    gw2DisableLink = false,
-    gw2ClassName = undefined,
+    gw2Notooltip = undefined,
+    gw2Notext = undefined,
+    gw2Nolink = undefined,
+    gw2Noicon = undefined,
+    gw2Class = undefined,
     gw2Style = undefined,
   } = props.dataset;
 
@@ -22,10 +23,11 @@ export default function boonReactor(
     <Boon
       name={gw2Name as BoonProps['name']}
       count={gw2Count}
-      disableTooltip={gw2DisableTooltip}
-      disableText={gw2DisableText}
-      disableLink={gw2DisableLink}
-      className={gw2ClassName}
+      disableTooltip={gw2Notooltip !== undefined && gw2Notooltip !== 'false'}
+      disableText={gw2Notext !== undefined && gw2Notext !== 'false'}
+      disableLink={gw2Nolink !== undefined && gw2Nolink !== 'false'}
+      disableIcon={gw2Noicon !== undefined && gw2Noicon !== 'false'}
+      className={gw2Class}
       style={gw2Style}
       key={key}
     />

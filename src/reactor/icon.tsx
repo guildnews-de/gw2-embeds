@@ -9,10 +9,11 @@ export default function iconReactor(
 ): ReactElement {
   const {
     gw2Name = 'ap',
+    gw2Count = undefined,
     gw2Text = undefined,
-    gw2DisableText = false,
-    gw2DisableIcon = false,
-    gw2ClassName = undefined,
+    gw2Notext = undefined,
+    gw2Noicon = undefined,
+    gw2Class = undefined,
     gw2Style = undefined,
   } = props.dataset;
 
@@ -23,7 +24,8 @@ export default function iconReactor(
     const { src, color, text } = assets[gw2Name as keyof typeof assets];
     iconSrc = src;
     iconColor = color;
-    iconTxt = gw2Text || text;
+    const descr = gw2Text || text;
+    iconTxt = gw2Count ? `${gw2Count} ${descr}` : descr;
   } catch (error) {
     console.log(`Icon data not found ${error}`);
   }
@@ -37,9 +39,9 @@ export default function iconReactor(
     <IconWithText
       icon={iconSrc as string}
       text={iconTxt}
-      disableIcon={gw2DisableIcon}
-      disableText={gw2DisableText}
-      className={gw2ClassName}
+      disableIcon={gw2Noicon !== undefined && gw2Noicon !== 'false'}
+      disableText={gw2Notext !== undefined && gw2Notext !== 'false'}
+      className={gw2Class}
       style={iconStyle}
       key={key}
     />

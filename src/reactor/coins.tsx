@@ -8,14 +8,14 @@ export default function coinReactor(
 ): ReactElement {
   const {
     gw2Value,
-    gw2ClassName = undefined,
+    gw2Class = undefined,
     gw2Style = undefined,
   } = props.dataset;
 
   return (
     <Coin
       value={gw2Value as number}
-      className={gw2ClassName}
+      className={gw2Class}
       style={gw2Style}
       key={`${key}`}
     />

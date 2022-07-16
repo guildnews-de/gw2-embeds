@@ -17,7 +17,7 @@ export default interface EmbedElement extends Omit<HTMLElement, 'dataset'> {
     gw2Nolink?: string
     gw2Noicon?: string;
     gw2Inline?: string;
-    gw2ClassName?: string;
+    gw2Class?: string;
     gw2Style?: CSSProperties;
     gw2Size?: string
     // Boon, Condition, Effect

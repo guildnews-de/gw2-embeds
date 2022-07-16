@@ -10,11 +10,11 @@ export default function specializationReactor(
   const {
     gw2Id,
     gw2Text = undefined,
-    gw2DisableText = false,
-    gw2DisableLink = false,
-    gw2DisableIcon = false,
-    gw2ClassName = undefined,
-    gw2Inline = false,
+    gw2Notext = undefined,
+    gw2Nolink = undefined,
+    gw2Noicon = undefined,
+    gw2Class = undefined,
+    gw2Inline = undefined,
     gw2Style = undefined,
   } = props.dataset;
 
@@ -27,11 +27,11 @@ export default function specializationReactor(
         <Specialization
           id={id as number}
           text={gw2Text}
-          disableText={gw2DisableText}
-          disableLink={gw2DisableLink}
-          disableIcon={gw2DisableIcon}
-          className={gw2ClassName}
-          inline={gw2Inline}
+          disableText={gw2Notext !== undefined && gw2Notext !== 'false'}
+          disableLink={gw2Nolink !== undefined && gw2Nolink !== 'false'}
+          disableIcon={gw2Noicon !== undefined && gw2Noicon !== 'false'}
+          inline={gw2Inline !== undefined && gw2Inline !== 'false'}
+          className={gw2Class}
           style={gw2Style}
         />{' '}
       </span>

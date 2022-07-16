@@ -10,9 +10,9 @@ export default function traitlineReactor(
   const {
     gw2Id,
     gw2DefaultSelected = undefined,
-    gw2Selectable = false,
-    gw2Resettable = false,
-    gw2ClassName = undefined,
+    gw2Selectable = undefined,
+    gw2Resettable = undefined,
+    gw2Class = undefined,
     gw2Style = undefined,
   } = props.dataset;
 
@@ -27,7 +27,7 @@ export default function traitlineReactor(
       defaultSelected={selection}
       resettable={gw2Resettable}
       selectable={gw2Selectable}
-      className={gw2ClassName}
+      className={gw2Class}
       style={gw2Style}
       key={key}
     />

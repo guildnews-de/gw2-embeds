@@ -18,9 +18,9 @@ function bootstrap() {
   embeddables.forEach((element, index) => {
     const { gw2Embed: embedType = 'error' } = element.dataset;
     if (element.dataset.gw2Size) {
-      const { gw2ClassName: cls = undefined } = element.dataset;
+      const { gw2Class: cls = undefined } = element.dataset;
       // eslint-disable-next-line no-param-reassign
-      element.dataset.gw2ClassName = clsx(cls, 'largeIcon');
+      element.dataset.gw2Class = clsx(cls, 'largeIcon');
     }
     element.removeAttribute('data-gw2-embed');
     return (
