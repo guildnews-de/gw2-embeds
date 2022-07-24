@@ -1,5 +1,5 @@
 export default function idParser(rawIds: string) {
-  const parentArray = rawIds.split(';');
+  const parentArray = rawIds.includes(',') ? rawIds.split(',') : rawIds.split(';');
   const parentOut: number[] = [];
   parentArray.forEach((str, i) => {
     const check = parseInt(str, 10);
