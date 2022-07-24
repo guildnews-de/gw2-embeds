@@ -15,7 +15,6 @@ export default function itemReactor(props: EmbedElement, key: string) {
     gw2Nolink = undefined,
     gw2Noicon = undefined,
     gw2Class = undefined,
-    gw2Size = undefined,
     gw2Inline = undefined,
     gw2Style = undefined,
   } = props.dataset;
@@ -40,7 +39,7 @@ export default function itemReactor(props: EmbedElement, key: string) {
           disableText={gw2Notext !== undefined && gw2Notext !== 'false'}
           disableLink={gw2Nolink !== undefined && gw2Nolink !== 'false'}
           disableIcon={gw2Noicon !== undefined && gw2Noicon !== 'false'}
-          className={gw2Size ? `largeIcon ${gw2Class}` : gw2Class}
+          className={gw2Class}
           inline={gw2Inline !== undefined && gw2Inline !== 'false'}
           style={gw2Style}
         />{' '}
