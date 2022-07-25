@@ -12,52 +12,52 @@ import eodIcon from './mpEod.png';
 export default {
   ap: {
     src: apIcon,
-    color: 'SaddleBrown',
+    color: '#c60',
     text: 'Erfolgspunkte',
   },
   gems: {
     src: gemsIcon,
-    color: 'RoyalBlue',
+    color: '#369',
     text: 'Edelsteine',
   },
   karma: {
     src: karmaIcon,
-    color: 'BlueViolet',
+    color: '#90f',
     text: 'Karma',
   },
   laurel: {
     src: laurelIcon,
-    color: 'DarkGreen',
+    color: '#060',
     text: 'Lorbeeren',
   },
   title: {
     src: titleIcon,
-    color: 'DarkGoldenRod',
+    color: '#c60',
     text: 'Titel',
   },
   central: {
     src: centralIcon,
-    color: 'DarkGoldenRod',
+    color: '#c00',
     text: 'Zentraltyria-Beherrschungspunkt',
   },
   hot: {
     src: hotIcon,
-    color: 'DarkGoldenRod',
+    color: '#360',
     text: 'HoT-Beherrschungspunkt',
   },
   pof: {
     src: pofIcon,
-    color: 'DarkGoldenRod',
+    color: '#c09',
     text: 'PoF-Beherrschungspunkt',
   },
   ice: {
     src: iceIcon,
-    color: 'DarkGoldenRod',
+    color: '#09c',
     text: 'Eisbrut-Beherrschungspunkt',
   },
   eod: {
     src: eodIcon,
-    color: 'DarkGoldenRod',
+    color: '#06c',
     text: 'Eod-Beherrschungspunkt',
   },
 };
