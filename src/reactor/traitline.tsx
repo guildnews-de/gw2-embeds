@@ -17,16 +17,16 @@ export default function traitlineReactor(
 
   const id = parseInt(gw2Id as string, 10);
   const selection = gw2Traits
-    ? (idParser(gw2Traits as string) as number[])
-    : undefined;
+  ? (idParser(gw2Traits as string) as number[])
+  : undefined;
+  const edit = typeof gw2Edit !== 'undefined' && gw2Edit !== 'false';
 
   return (
     <TraitLine
       id={id}
-      selected={gw2Edit && gw2Edit !== 'false' ? undefined : selection}
-      defaultSelected={gw2Edit && gw2Edit !== 'false' ? selection : undefined}
-      resettable={!!(gw2Edit && gw2Edit !== 'false')}
-      selectable={!!(gw2Edit && gw2Edit !== 'false')}
+      defaultSelected={selection}
+      resettable={edit}
+      selectable={edit}
       className={gw2Class}
       style={gw2Style}
       key={key}
