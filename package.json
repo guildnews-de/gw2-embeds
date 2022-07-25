@@ -1,7 +1,7 @@
 {
   "name": "gw2-embeds",
   "description": "Embedding script for discretize-gw2-ui",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "src/index.ts",
   "private": true,
   "packageManager": "yarn@3.2.1",
