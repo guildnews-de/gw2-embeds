@@ -9,24 +9,24 @@ export default function traitlineReactor(
 ): ReactElement {
   const {
     gw2Id,
-    gw2DefaultSelected = undefined,
-    gw2Selectable = undefined,
-    gw2Resettable = undefined,
+    gw2Traits = undefined,
+    gw2Edit = undefined,
     gw2Class = undefined,
     gw2Style = undefined,
   } = props.dataset;
 
   const id = parseInt(gw2Id as string, 10);
-  const selection = gw2DefaultSelected
-    ? (idParser(gw2DefaultSelected as string) as number[])
+  const selection = gw2Traits
+    ? (idParser(gw2Traits as string) as number[])
     : undefined;
 
   return (
     <TraitLine
       id={id}
-      defaultSelected={selection}
-      resettable={gw2Resettable}
-      selectable={gw2Selectable}
+      selected={gw2Edit && gw2Edit !== 'false' ? undefined : selection}
+      defaultSelected={gw2Edit && gw2Edit !== 'false' ? selection : undefined}
+      resettable={!!(gw2Edit && gw2Edit !== 'false')}
+      selectable={!!(gw2Edit && gw2Edit !== 'false')}
       className={gw2Class}
       style={gw2Style}
       key={key}

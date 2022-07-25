@@ -29,9 +29,8 @@ export default interface EmbedElement extends Omit<HTMLElement, 'dataset'> {
     gw2Stats?: string;
     gw2Upgrades?: string;
     // Traitline
-    gw2Inactive?: boolean;
-    gw2DefaultSelected?: string;
-    gw2Selectable?: boolean;
-    gw2Resettable?: boolean;
+    gw2Inactive?: string;
+    gw2Traits?: string;
+    gw2Edit?: string;
   };
 }
