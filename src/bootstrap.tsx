@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import type NodeListOf from 'typescript';
 import clsx from 'clsx';
 import objectHash from 'object-hash';
@@ -35,19 +35,22 @@ function bootstrap() {
             // eslint-disable-next-line no-param-reassign
             element.dataset.gw2Class = clsx(cls, `iconSize_${keyHash}`);
           }
-          ReactDOM.render(
+          const root = createRoot(element!);
+          root.render(
             <React.StrictMode>
               <EmbModul dataset={dataset} key={keyHash} />
-              <style>{ `.iconSize_${keyHash} > [class|="Icon"] { 
-                          width: ${gw2Size}px; 
-                          height: ${gw2Size}px; 
-                        }
-                        .iconSize_${keyHash} > span {
-                          vertical-align: middle !important;
-                        }`
-              }</style>
-            </React.StrictMode>,
-            element,
+              {sizeIsSet ? (
+                <style>{`.iconSize_${keyHash} > [class|="Icon"] { 
+                  width: ${gw2Size}px; 
+                  height: ${gw2Size}px; 
+                }
+                .iconSize_${keyHash} > span {
+                  vertical-align: middle !important;
+                }`}</style>
+              ) : (
+                ''
+              )}
+            </React.StrictMode>
           );
         })
         // eslint-disable-next-line no-console
