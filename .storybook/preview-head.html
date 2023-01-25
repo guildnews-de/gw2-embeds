@@ -1,0 +1,45 @@
+<script>
+    window.reloadLib = function () {
+      return new Promise(resolve => {
+  
+        // not global function or var to avoid overrides
+        const loadScript = function (scriptSrc) {
+          return new Promise(resolve => {
+            // load script
+            const script = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src = scriptSrc;
+  
+            if (script.readyState) {  // IE
+              script.onreadystatechange = () => {
+                if (script.readyState === 'loaded' || script.readyState === 'complete') {
+                  resolve();
+                }
+              };
+            } else {  // Others
+              script.onload = () => {
+                resolve();
+              };
+            }
+  
+            document.getElementsByTagName('head')[0].appendChild(script);
+          });
+        };
+  
+        const scripts = {
+          gw2embeds: './dist/gw2-embeds.js',
+        };
+  
+        const promises = [];
+  
+        Object.keys(scripts)
+          .forEach(key => {
+            delete window[key];
+            promises.push(loadScript(scripts[key]));
+          });
+  
+        Promise.all(promises)
+          .then(() => resolve());
+      });
+    };
+  </script>
