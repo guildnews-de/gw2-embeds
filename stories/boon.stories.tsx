@@ -33,7 +33,7 @@ export default {
     noLink: { control: 'boolean' },
     noIcon: { control: 'boolean' },
     size: { control: 'boolean' },
-    className: { control: false },
+    className: { control: 'text' },
   },
 };
 
@@ -43,7 +43,6 @@ function Template(args) {
   const { embed, name, count, size, noTooltip, noText, noLink, noIcon } = args;
   return (
     <div
-      className="gw2-embed"
       data-gw2-embed={embed}
       data-gw2-name={name}
       data-gw2-count={count}

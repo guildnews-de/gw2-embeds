@@ -27,7 +27,7 @@ export default {
     noLink: { control: 'boolean' },
     noIcon: { control: 'boolean' },
     size: { control: 'boolean' },
-    className: { control: false },
+    className: { control: 'text' },
   },
 };
 
@@ -48,7 +48,6 @@ function Template(args) {
   } = args;
   return (
     <div
-      className="gw2-embed"
       data-gw2-embed={embed}
       data-gw2-id={id}
       data-gw2-stats={stats}

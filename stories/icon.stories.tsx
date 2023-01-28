@@ -18,22 +18,22 @@ export default {
     noText: { control: 'boolean' },
     noIcon: { control: 'boolean' },
     size: { control: 'boolean' },
-    className: { control: false },
+    className: { control: 'text'  },
   },
 };
 
 function Template(args) {
   // @ts-ignore
   window.reloadLib();
-  const { embed, name, count, text, size, noText, noIcon } = args;
+  const { embed, name, count, text, size, className, noText, noIcon } = args;
   return (
     <div
-      className="gw2-embed"
       data-gw2-embed={embed}
       data-gw2-name={name}
       data-gw2-count={count > 0 ? count : undefined}
       data-gw2-text={text}
       data-gw2-size={size}
+      data-gw2-class={className}
       data-gw2-notext={noText}
       data-gw2-noicon={noIcon}
     />
@@ -47,6 +47,7 @@ defaultIcon.args = {
   count: 10,
   text: undefined,
   size: false,
+  className: '',
   noText: false,
   noIcon: false,
 };
