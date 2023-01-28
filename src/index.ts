@@ -1,5 +1,8 @@
 const init = () => {
-  import('./bootstrap').then((module) => module.default());
+  const scripts = document.querySelector('script#gw2embeds');
+  if (scripts == null) {
+    import('./bootstrap').then((module) => module.default());
+  }
 };
 
 export default (function setGW2Embed() {
