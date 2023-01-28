@@ -13,11 +13,11 @@
     "build": "webpack --mode=production",
     "build-dev": "webpack --mode=development",
     "prepare": "yarn build",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "test": "yarn format && yarn lint",
     "format": "prettier -w src",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "storybook": "yarn build && start-storybook --docs -p 6006 -s public",
     "build-storybook": "yarn build:dev && build-storybook --docs -s public",
-    
     "watch": "webpack --watch"
   },
   "dependencies": {
