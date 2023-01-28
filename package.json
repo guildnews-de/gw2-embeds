@@ -1,7 +1,7 @@
 {
   "name": "gw2-embeds",
   "description": "Embedding script for discretize-gw2-ui",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "dist/gw2-embeds.js",
   "types": "dist/gw2-embeds.d.ts",
   "files": [
