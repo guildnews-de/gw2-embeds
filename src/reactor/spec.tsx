@@ -9,7 +9,6 @@ export default function specializationReactor(
 ) {
   const {
     gw2Id,
-    gw2Text = undefined,
     gw2Notext = undefined,
     gw2Nolink = undefined,
     gw2Noicon = undefined,
@@ -26,7 +25,6 @@ export default function specializationReactor(
       <span key={`${key}${i}`}>
         <Specialization
           id={id as number}
-          text={gw2Text}
           disableText={gw2Notext !== undefined && gw2Notext !== 'false'}
           disableLink={gw2Nolink !== undefined && gw2Nolink !== 'false'}
           disableIcon={gw2Noicon !== undefined && gw2Noicon !== 'false'}

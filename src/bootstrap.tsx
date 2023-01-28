@@ -35,7 +35,7 @@ function bootstrap() {
             // eslint-disable-next-line no-param-reassign
             element.dataset.gw2Class = clsx(cls, `iconSize_${keyHash}`);
           }
-          const root = createRoot(element!);
+          const root = createRoot(element);
           root.render(
             <React.StrictMode>
               <EmbModul dataset={dataset} key={keyHash} />
