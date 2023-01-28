@@ -1,7 +1,4 @@
-// Generated using webpack-cli https://github.com/webpack/webpack-cli
-
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -10,6 +7,7 @@ const cssProcessor = !isProduction
   : MiniCssExtractPlugin.loader;
 
 const config = {
+  target: 'web',
   entry: './src/index.ts',
   output: {
     filename: 'gw2-embeds.js',
@@ -20,11 +18,6 @@ const config = {
     clean: true,
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: 'index.html',
-      inject: 'body',
-    }),
-
     new MiniCssExtractPlugin({
       filename: '[id].[contenthash].css',
     }),
