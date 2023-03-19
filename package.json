@@ -9,15 +9,15 @@
   ],
   "packageManager": "yarn@3.3.1",
   "scripts": {
-    "start": "yarn storybook",
-    "prepare": "yarn build",
-    "test": "yarn format && yarn lint",
+    "start": "react-scripts start",
+    "prepare": "$npm_execpath build",
+    "check": "$npm_execpath format && $npm_execpath lint",
     "format": "prettier -w src",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
-    "storybook": "yarn build:dev && start-storybook --docs -p 6006 -s public",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production",
-    "build-storybook": "yarn build:dev && build-storybook --docs -s public",
+    "storybook": "$npm_execpath build:dev && start-storybook --docs -p 6006",
+    "build-storybook": "$npm_execpath build:dev && build-storybook --docs",
     "watch": "webpack --watch"
   },
   "dependencies": {
