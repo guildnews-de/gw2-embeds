@@ -1,6 +1,5 @@
 import { DocsContainer } from './DocsContainer'
 
-
 export const parameters = {
   // actions: { argTypesRegex: "^on[A-Z].*" },
   // controls: {
