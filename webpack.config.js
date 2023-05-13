@@ -27,11 +27,7 @@ const config = {
       {
         test: /\.(ts|tsx)$/i,
         loader: 'ts-loader',
-        exclude: ['/node_modules/', '/stories/'],
-      },
-      {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: 'asset',
+        exclude: ['/node_modules/'],
       },
       {
         test: /\.css$/i,
@@ -44,30 +40,12 @@ const config = {
               modules: true,
             },
           },
-          {
-            loader: 'postcss-loader',
-            options: {
-              postcssOptions: {
-                plugins: [
-                  [
-                    'postcss-preset-env',
-                    {
-                      // Options
-                    },
-                  ],
-                ],
-                parser: 'postcss-js',
-              },
-              execute: true,
-            },
-          },
         ],
         include: /\.module\.css$/,
       },
       {
-        test: /\.css$/,
-        use: [cssProcessor, 'css-loader'],
-        exclude: /\.module\.css$/,
+        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+        type: 'asset',
       },
     ],
   },
