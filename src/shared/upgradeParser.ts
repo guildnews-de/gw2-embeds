@@ -31,7 +31,6 @@ export default function idParser(rawIds: string) {
       }
       case 'falsetrue': {
         // String containts no commas, but +
-        // @ts-ignore
         childOut.push(splitPlus(str));
         break;
       }
@@ -53,8 +52,7 @@ export default function idParser(rawIds: string) {
         break;
       }
     }
-    // @ts-ignore
-    parentOut[i] = childOut;
+    parentOut[i] = Number(childOut);
   });
   return parentOut;
 }

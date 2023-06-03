@@ -1,7 +1,7 @@
 const init = () => {
   const scripts = document.querySelector('script#gw2embeds');
   if (scripts == null) {
-    import('./bootstrap').then((module) => module.default());
+    import('./App').then((module) => module.default());
   }
 };
 

@@ -5,11 +5,9 @@ import clsx from 'clsx';
 import objectHash from 'object-hash';
 import EmbedElement from './shared/embedElement';
 
-import '@discretize/typeface-menomonia/index.css';
-import '@discretize/gw2-ui-new/dist/default_style.css';
-import '@discretize/gw2-ui-new/dist/index.css';
+import './App.scss';
 
-function bootstrap() {
+function App() {
   const embeddables = Array.from(
     document.querySelectorAll(
       'div[data-gw2-embed],span[data-gw2-embed]',
@@ -59,4 +57,4 @@ function bootstrap() {
   });
 }
 
-export default bootstrap;
+export default App;
