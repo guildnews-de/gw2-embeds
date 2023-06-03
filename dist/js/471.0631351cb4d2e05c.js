@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkgw2_embeds=self.webpackChunkgw2_embeds||[]).push([[471],{471:(e,a,s)=>{s.r(a),s.d(a,{default:()=>d});var t=s(450),l=s(294);function d(e,a){var s=e.dataset,d=s.gw2Value,u=s.gw2Class,c=void 0===u?void 0:u,n=s.gw2Style,r=void 0===n?void 0:n;return l.createElement(t.sN,{value:d,className:c,style:r,key:"".concat(a)})}}}]);
