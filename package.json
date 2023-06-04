@@ -16,7 +16,7 @@
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "types": "yarn tsc --emitDeclarationOnly --declaration --declarationDir dist/@types --skiplibCheck",
     "build:dev": "webpack --config webpack/webpack.config.js --mode=development",
-    "build:prod": "webpack --config webpack/webpack.config.js --mode=production --node-env=production && yarn types"
+    "build": "webpack --config webpack/webpack.config.js --mode=production --node-env=production && yarn types"
   },
   "dependencies": {
     "@discretize/gw2-ui-new": "../discretize-ui/gw2-ui",
