@@ -2880,9 +2880,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discretize/gw2-ui-new@file:../discretize-ui/gw2-ui::locator=gw2-embeds%40workspace%3A.":
+"@discretize/gw2-ui-new@file:../../../@discretize-ui/gw2-ui::locator=gw2-embeds%40workspace%3A.":
   version: 0.1.2
-  resolution: "@discretize/gw2-ui-new@file:../discretize-ui/gw2-ui#../discretize-ui/gw2-ui::hash=98d13b&locator=gw2-embeds%40workspace%3A."
+  resolution: "@discretize/gw2-ui-new@file:../../../@discretize-ui/gw2-ui#../../../@discretize-ui/gw2-ui::hash=98d13b&locator=gw2-embeds%40workspace%3A."
   dependencies:
     "@discretize/typeface-menomonia": ^0.1.3
     clsx: ^1.1.1
@@ -8091,7 +8091,7 @@ __metadata:
     "@babel/preset-env": ^7.22.4
     "@babel/preset-react": ^7.22.3
     "@babel/preset-typescript": ^7.21.5
-    "@discretize/gw2-ui-new": ../discretize-ui/gw2-ui
+    "@discretize/gw2-ui-new": ../../../@discretize-ui/gw2-ui
     "@discretize/typeface-menomonia": ^0.1.3
     "@types/mini-css-extract-plugin": ^2.5.1
     "@types/node": ^18.15.3
