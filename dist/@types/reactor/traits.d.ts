@@ -1,2 +1,2 @@
-import EmbedElement from '../shared/embedElement';
-export default function traitReactor(props: EmbedElement, key: string): JSX.Element[];
+import { EmbedProps } from '../shared/embedElement';
+export default function traitReactor(props: EmbedProps): JSX.Element[];

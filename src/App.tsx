@@ -1,9 +1,8 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import type NodeListOf from 'typescript';
-import clsx from 'clsx';
 import objectHash from 'object-hash';
-import EmbedElement from './shared/embedElement';
+import { EmbedElement } from './shared/embedElement';
 
 import './App.scss';
 
@@ -14,6 +13,7 @@ function App() {
     ) as NodeListOf<EmbedElement>,
   );
   embeddables.forEach((element, index) => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { gw2Embed: embedType = 'error', gw2Size = undefined } =
       element.dataset;
 
@@ -23,32 +23,27 @@ function App() {
         .then(({ default: EmbModul }) => {
           const { dataset } = element;
           const keyHash = objectHash({
-            current: embedType,
+            ...dataset,
             number: index,
           }).substring(0, 6);
-
-          const sizeIsSet = typeof element.dataset.gw2Size !== 'undefined';
-          if (sizeIsSet) {
-            const { gw2Class: cls = undefined } = element.dataset;
-            // eslint-disable-next-line no-param-reassign
-            element.dataset.gw2Class = clsx(cls, `iconSize_${keyHash}`);
-          }
           const root = createRoot(element);
           root.render(
             <React.StrictMode>
-              <EmbModul dataset={dataset} key={keyHash} />
-              {sizeIsSet ? (
-                <style>{`.iconSize_${keyHash} > [class|="Icon"] { 
-                  width: ${gw2Size}px; 
-                  height: ${gw2Size}px; 
+              <EmbModul
+                dataset={dataset}
+                hash={keyHash}
+                iconProps={
+                  gw2Size
+                    ? {
+                        style: {
+                          fontSize: `${Number(gw2Size)}px`,
+                          verticalAlign: 'middle',
+                        },
+                      }
+                    : undefined
                 }
-                .iconSize_${keyHash} > span {
-                  vertical-align: middle !important;
-                }`}</style>
-              ) : (
-                ''
-              )}
-            </React.StrictMode>
+              />
+            </React.StrictMode>,
           );
         })
         // eslint-disable-next-line no-console

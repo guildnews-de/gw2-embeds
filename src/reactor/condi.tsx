@@ -1,11 +1,8 @@
 import { Condition } from '@discretize/gw2-ui-new';
 import React, { ComponentProps, ReactElement } from 'react';
-import EmbedElement from '../shared/embedElement';
+import { EmbedProps } from '../shared/embedElement';
 
-export default function condiReactor(
-  props: EmbedElement,
-  key: string,
-): ReactElement {
+export default function condiReactor(props: EmbedProps): ReactElement {
   const {
     gw2Name,
     gw2Count = undefined,
@@ -13,9 +10,8 @@ export default function condiReactor(
     gw2Notext = undefined,
     gw2Nolink = undefined,
     gw2Noicon = undefined,
-    gw2Class = undefined,
-    gw2Style = undefined,
   } = props.dataset;
+  const { hash } = props
 
   type ConditionProps = ComponentProps<typeof Condition>;
 
@@ -27,9 +23,9 @@ export default function condiReactor(
       disableText={gw2Notext !== undefined && gw2Notext !== 'false'}
       disableLink={gw2Nolink !== undefined && gw2Nolink !== 'false'}
       disableIcon={gw2Noicon !== undefined && gw2Noicon !== 'false'}
-      className={gw2Class}
-      style={gw2Style}
-      key={`${key}`}
+      //style={gw2Style}
+      key={`${hash}`}
+      {...props}
     />
   );
 }
