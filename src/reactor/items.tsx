@@ -2,7 +2,7 @@ import { Item } from '@discretize/gw2-ui-new';
 import React, { ComponentProps } from 'react';
 import { EmbedProps } from '../shared/embedElement';
 import idParser from '../shared/idParser';
-import upgradeParser from '../shared/upgradeParser'
+import upgradeParser from '../shared/upgradeParser';
 
 export default function itemReactor(props: EmbedProps) {
   const {
@@ -16,7 +16,7 @@ export default function itemReactor(props: EmbedProps) {
     gw2Noicon = undefined,
     gw2Inline = undefined,
   } = props.dataset;
-  const { hash } = props
+  const { hash } = props;
 
   const ids = gw2Id ? idParser(gw2Id) : [0];
   const upgrades = gw2Upgrades ? upgradeParser(gw2Upgrades) : undefined;
@@ -34,7 +34,9 @@ export default function itemReactor(props: EmbedProps) {
             upgrades ? (upgrades[i] as ItemProps['upgrades']) : undefined
           }
           stat={gw2Stats}
-          disableTooltip={gw2Notooltip !== undefined && gw2Notooltip !== 'false'}
+          disableTooltip={
+            gw2Notooltip !== undefined && gw2Notooltip !== 'false'
+          }
           disableText={gw2Notext !== undefined && gw2Notext !== 'false'}
           disableLink={gw2Nolink !== undefined && gw2Nolink !== 'false'}
           disableIcon={gw2Noicon !== undefined && gw2Noicon !== 'false'}

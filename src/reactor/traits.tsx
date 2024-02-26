@@ -13,7 +13,7 @@ export default function traitReactor(props: EmbedProps) {
     gw2Noicon = undefined,
     gw2Inline = undefined,
   } = props.dataset;
-  const { hash } = props
+  const { hash } = props;
 
   const ids = gw2Id ? idParser(gw2Id) : [0];
 
@@ -24,7 +24,9 @@ export default function traitReactor(props: EmbedProps) {
         <Trait
           id={id as number}
           text={gw2Text}
-          disableTooltip={gw2Notooltip !== undefined && gw2Notooltip !== 'false'}
+          disableTooltip={
+            gw2Notooltip !== undefined && gw2Notooltip !== 'false'
+          }
           disableText={gw2Notext !== undefined && gw2Notext !== 'false'}
           disableLink={gw2Nolink !== undefined && gw2Nolink !== 'false'}
           disableIcon={gw2Noicon !== undefined && gw2Noicon !== 'false'}

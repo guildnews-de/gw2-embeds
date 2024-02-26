@@ -11,7 +11,7 @@ export default function iconReactor(props: EmbedProps): ReactElement {
     gw2Notext = undefined,
     gw2Noicon = undefined,
   } = props.dataset;
-  const { hash } = props
+  const { hash } = props;
 
   let iconSrc;
   let iconColor;
@@ -25,7 +25,7 @@ export default function iconReactor(props: EmbedProps): ReactElement {
   } catch (error) {
     console.log(`Icon data not found ${error}`);
   }
-  
+
   const iconStyle = {
     color: iconColor,
   };

@@ -1,6 +1,6 @@
 import { Specialization } from '@discretize/gw2-ui-new';
 import React from 'react';
-import {EmbedProps} from '../shared/embedElement';
+import { EmbedProps } from '../shared/embedElement';
 import idParser from '../shared/idParser';
 
 export default function specializationReactor(props: EmbedProps) {
@@ -11,7 +11,7 @@ export default function specializationReactor(props: EmbedProps) {
     gw2Noicon = undefined,
     gw2Inline = undefined,
   } = props.dataset;
-  const { hash } = props
+  const { hash } = props;
 
   const ids = gw2Id ? idParser(gw2Id) : [0];
 

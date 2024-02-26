@@ -13,7 +13,7 @@ export default function boonReactor(props: EmbedProps): ReactElement {
   } = props.dataset;
 
   type BoonProps = ComponentProps<typeof Boon>;
-  const { hash } = props
+  const { hash } = props;
 
   return (
     <Boon

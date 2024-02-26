@@ -24,8 +24,8 @@ export default function idParser(rawIds: string) {
       case 'truefalse': {
         // String containts commas, but no +
         const out = splitComma(str);
-        out.forEach(element => {
-          childOut.push(parseInt(element,10));
+        out.forEach((element) => {
+          childOut.push(parseInt(element, 10));
         });
         break;
       }
@@ -37,11 +37,11 @@ export default function idParser(rawIds: string) {
       case 'truetrue': {
         // String contains both
         const split = splitComma(str);
-        split.forEach(element => {
+        split.forEach((element) => {
           if (element.includes('+')) {
             childOut.push(splitPlus(element));
           } else {
-            childOut.push(parseInt(element,10));
+            childOut.push(parseInt(element, 10));
           }
         });
         break;

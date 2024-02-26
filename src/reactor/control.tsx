@@ -10,7 +10,7 @@ export default function controlReactor(props: EmbedProps): ReactElement {
     gw2Nolink = undefined,
     gw2Noicon = undefined,
   } = props.dataset;
-  const { hash } = props
+  const { hash } = props;
 
   type ControlEffectProps = ComponentProps<typeof ControlEffect>;
 

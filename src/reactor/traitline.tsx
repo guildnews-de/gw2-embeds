@@ -4,17 +4,13 @@ import { EmbedProps } from '../shared/embedElement';
 import idParser from '../shared/idParser';
 
 export default function traitlineReactor(props: EmbedProps): ReactElement {
-  const {
-    gw2Id,
-    gw2Traits = undefined,
-    gw2Edit = undefined,
-  } = props.dataset;
-  const { hash } = props
+  const { gw2Id, gw2Traits = undefined, gw2Edit = undefined } = props.dataset;
+  const { hash } = props;
 
   const id = parseInt(gw2Id as string, 10);
   const selection = gw2Traits
-  ? (idParser(gw2Traits as string) as number[])
-  : undefined;
+    ? (idParser(gw2Traits as string) as number[])
+    : undefined;
   const edit = typeof gw2Edit !== 'undefined' && gw2Edit !== 'false';
 
   return (

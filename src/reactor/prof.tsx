@@ -11,7 +11,7 @@ export default function boonReactor(props: EmbedProps): ReactElement {
     gw2Nolink = undefined,
     gw2Noicon = undefined,
   } = props.dataset;
-  const { hash } = props
+  const { hash } = props;
 
   type ProfessionProps = ComponentProps<typeof Profession>;
 
