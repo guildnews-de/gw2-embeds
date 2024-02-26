@@ -6,7 +6,11 @@ const TSLoader = {
   use: {
     loader: 'babel-loader',
     options: {
-      presets: ['@babel/preset-env', '@babel/preset-typescript', '@babel/preset-react'],
+      presets: [
+        '@babel/preset-env',
+        '@babel/preset-typescript',
+        '@babel/preset-react',
+      ],
     },
   },
 };
@@ -20,7 +24,7 @@ const CSSLoader = {
     },
     {
       loader: 'css-loader',
-      options: { 
+      options: {
         //modules: true,
         //importLoaders: 2,
         //sourceMap: true,
@@ -28,9 +32,8 @@ const CSSLoader = {
     },
     {
       loader: 'resolve-url-loader',
-
     },
-     {
+    {
       loader: 'sass-loader',
       options: {
         sourceMap: true,
@@ -55,7 +58,9 @@ const CSSLoader = {
   ],
 };
 
-module.exports = {
-  TSLoader: TSLoader,
-  CSSLoader: CSSLoader,
+const AssetLoader = {
+  test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
+  type: 'asset/resource',
 };
+
+module.exports = [TSLoader, CSSLoader, AssetLoader];

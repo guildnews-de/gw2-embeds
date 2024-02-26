@@ -1,6 +1,6 @@
 const { resolve } = require('path');
-const { ESLintPlugin, MiniCssExtract } = require('./plugins');
-const { TSLoader, CSSLoader } = require('./loaders')
+const plugins = require('./plugins');
+const loaders = require('./loaders');
 
 const isProduction = process.env.NODE_ENV == 'production';
 
@@ -15,19 +15,9 @@ const config = {
     hashDigestLength: 16,
     clean: true,
   },
-  plugins: [
-    ESLintPlugin,
-    MiniCssExtract,
-  ],
+  plugins: plugins,
   module: {
-    rules: [
-      TSLoader,
-      CSSLoader,
-      {
-        test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
-        type: 'asset/resource',
-      },
-    ],
+    rules: loaders,
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '...'],

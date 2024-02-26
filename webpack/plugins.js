@@ -1,11 +1,12 @@
 const { resolve } = require('path');
-const _ESLintPlugin = require('eslint-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const ESLintPlugin = new _ESLintPlugin({
+const ESLint = new ESLintPlugin({
   overrideConfigFile: resolve(__dirname, '../.eslintrc.js'),
   context: resolve(__dirname, '../src'),
-  files: ['**/*.ts','**/*.tsx'],
+  files: ['**/*.ts', '**/*.tsx'],
 });
 
 const MiniCssExtract = new MiniCssExtractPlugin({
@@ -13,7 +14,10 @@ const MiniCssExtract = new MiniCssExtractPlugin({
   chunkFilename: 'css/[id].[contenthash].css',
 });
 
-module.exports = {
-  ESLintPlugin: ESLintPlugin,
-  MiniCssExtract: MiniCssExtract,
-};
+const BundleAnalyzer = new BundleAnalyzerPlugin({
+  analyzerMode: 'static',
+  openAnalyzer: true,
+  generateStatsFile: true,
+});
+
+module.exports = [ESLint, MiniCssExtract, BundleAnalyzer];
