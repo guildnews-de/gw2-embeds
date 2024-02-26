@@ -1,41 +1,27 @@
 import { IconWithText } from '@discretize/gw2-ui-new';
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { EmbedProps } from '../shared/embedElement';
 import assets from '../assets';
 
-export default function iconReactor(props: EmbedProps): ReactElement {
-  const {
-    gw2Name = 'ap',
-    gw2Count = undefined,
-    gw2Text = undefined,
-    gw2Notext = undefined,
-    gw2Noicon = undefined,
-  } = props.dataset;
-  const { hash } = props;
+export default function iconReactor(props: EmbedProps) {
+  const { embedName, count, text, hash } = props;
 
-  let iconSrc;
-  let iconColor;
-  let iconTxt;
-  try {
-    const { src, color, text } = assets[gw2Name as keyof typeof assets];
-    iconSrc = src;
-    iconColor = color;
-    const descr = gw2Text || text;
-    iconTxt = gw2Count ? `${gw2Count} ${descr}` : descr;
-  } catch (error) {
-    console.log(`Icon data not found ${error}`);
+  type AssetTypes = keyof typeof assets;
+
+  const { src, color, text: defaultText } = assets[embedName as AssetTypes];
+  let descr = text ? text : defaultText;
+  if (count > 1) {
+    descr = `${count} ${descr}`;
   }
 
   const iconStyle = {
-    color: iconColor,
+    color: color,
   };
 
   return (
     <IconWithText
-      icon={iconSrc as string}
-      text={iconTxt}
-      disableIcon={gw2Noicon !== undefined && gw2Noicon !== 'false'}
-      disableText={gw2Notext !== undefined && gw2Notext !== 'false'}
+      icon={src}
+      text={descr}
       style={iconStyle}
       key={hash}
       {...props}

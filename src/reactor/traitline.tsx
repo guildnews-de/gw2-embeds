@@ -1,25 +1,22 @@
 import { TraitLine } from '@discretize/gw2-ui-new';
-import React, { ReactElement } from 'react';
+import React from 'react';
 import { EmbedProps } from '../shared/embedElement';
 import idParser from '../shared/idParser';
 
-export default function traitlineReactor(props: EmbedProps): ReactElement {
-  const { gw2Id, gw2Traits = undefined, gw2Edit = undefined } = props.dataset;
-  const { hash } = props;
+export default function traitlineReactor(props: EmbedProps) {
+  const { ids, traits, traitsEdit, hash } = props;
 
-  const id = parseInt(gw2Id as string, 10);
-  const selection = gw2Traits
-    ? (idParser(gw2Traits as string) as number[])
+  const id = Number(ids);
+  const selection = traits
+    ? (idParser(traits as string) as number[])
     : undefined;
-  const edit = typeof gw2Edit !== 'undefined' && gw2Edit !== 'false';
 
   return (
     <TraitLine
       id={id}
       defaultSelected={selection}
-      resettable={edit}
-      selectable={edit}
-      //style={gw2Style}
+      resettable={traitsEdit}
+      selectable={traitsEdit}
       key={hash}
       {...props}
     />

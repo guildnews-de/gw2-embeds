@@ -1,28 +1,17 @@
 import { ControlEffect } from '@discretize/gw2-ui-new';
-import React, { ComponentProps, ReactElement } from 'react';
+import React, { ComponentProps } from 'react';
 import { EmbedProps } from '../shared/embedElement';
 
-export default function controlReactor(props: EmbedProps): ReactElement {
-  const {
-    gw2Name,
-    gw2Notooltip = undefined,
-    gw2Notext = undefined,
-    gw2Nolink = undefined,
-    gw2Noicon = undefined,
-  } = props.dataset;
-  const { hash } = props;
+export default function controlReactor(props: EmbedProps) {
+  const { embedName, hash } = props;
 
-  type ControlEffectProps = ComponentProps<typeof ControlEffect>;
+  type ControlEffectTypes = ComponentProps<typeof ControlEffect>['name'];
 
   return (
     <ControlEffect
-      name={gw2Name as ControlEffectProps['name']}
-      disableTooltip={gw2Notooltip !== undefined && gw2Notooltip !== 'false'}
-      disableText={gw2Notext !== undefined && gw2Notext !== 'false'}
-      disableLink={gw2Nolink !== undefined && gw2Nolink !== 'false'}
-      disableIcon={gw2Noicon !== undefined && gw2Noicon !== 'false'}
+      name={embedName as ControlEffectTypes}
       //style={gw2Style}
-      key={`${hash}`}
+      key={hash}
       {...props}
     />
   );
